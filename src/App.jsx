@@ -99,7 +99,7 @@ function App() {
                     <a href={i.url}>Read More</a>
                   </p>
                 </div>
-                <div className="content-image">
+                <div className="content-image-container">
                   <img
                     className="content-img"
                     src={

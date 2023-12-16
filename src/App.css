@@ -144,12 +144,19 @@ h1 {
   .img-sub {
     display: none;
   }
+  .news {
+    margin: 0;
+  }
   .main-img-2 {
     display: none;
   }
   .content-img {
-    height: 90px;
-    margin-right: 400px;
+    height: 130px;
+    padding: 0;
+    width: 329px;
+    margin-top: 0;
+    padding-top: 0;
+    border-radius: 20px;
   }
   .p-display {
     display: none;
@@ -165,5 +172,6 @@ h1 {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
+    border-radius: 20px;
   }
 }
