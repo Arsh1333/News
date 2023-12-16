@@ -25,9 +25,13 @@ function App() {
     <>
       <div className="hero">
         <nav className="nav">
-          <div className="logo">Newzy</div>
+          <div className="logo">
+            <a href="/">Newzy</a>
+          </div>
           <ul>
-            <li className="today">Today</li>
+            <li className="today">
+              <a href="#news">Today</a>
+            </li>
             <li>Explore</li>
           </ul>
           <button>Signup</button>
@@ -62,7 +66,7 @@ function App() {
         </div>
         <hr />
       </div>
-      <div className="news">
+      <div id="news">
         <h1 className="news-heading">Top News</h1>
         {/*<div className="card">
           <div className="card-img">
@@ -114,6 +118,11 @@ function App() {
           })}
         </div>
       </div>
+      <footer>
+        <div className="footer-container">
+          <h4>&copy;2023 Newzy inc.</h4>
+        </div>
+      </footer>
     </>
   );
 }

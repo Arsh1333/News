@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Playfair+Display:ital@1&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +91,7 @@ h1 {
   margin-right: 50px;
   margin-bottom: 100px;
 }
-.news {
+#news {
   margin-top: 200px;
 }
 .display {
@@ -140,6 +143,15 @@ h1 {
   border-radius: 20px;
 }
 */
+.footer-container {
+  background-color: #c7f860;
+}
+h4 {
+  margin-left: 50%;
+}
+a {
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .img-sub {
     display: none;
@@ -173,5 +185,8 @@ h1 {
     flex-direction: column-reverse;
     justify-content: center;
     border-radius: 20px;
+  }
+  h4 {
+    margin-left: 36%;
   }
 }
