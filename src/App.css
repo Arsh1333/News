@@ -32,11 +32,20 @@ html {
   font-size: larger;
   font: bold;
 }
-button {
+.button-sign {
   margin-left: auto;
   margin-right: 10px;
   margin-top: 10px;
   background-color: #c7f860;
+  width: 120px;
+  height: 40px;
+  border: none;
+}
+.button-dark {
+  margin-left: 2%;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #cccec7;
   width: 120px;
   height: 40px;
   border: none;
@@ -47,7 +56,12 @@ button {
   padding: 10px;
   font-weight: bold;
 }
-
+.moon-btn {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: #ebe1e1;
+}
 .hero-content {
   margin: 10px;
   max-height: 300px;
@@ -91,6 +105,7 @@ h1 {
   margin-right: 50px;
   margin-bottom: 100px;
 }
+
 #news {
   margin-top: 200px;
 }
@@ -152,6 +167,12 @@ h4 {
 a {
   text-decoration: none;
 }
+.turn {
+  margin-left: 90%;
+}
+.dark-bottom {
+  display: none;
+}
 @media (max-width: 768px) {
   .img-sub {
     display: none;
@@ -159,6 +180,14 @@ a {
   .news {
     margin: 0;
   }
+  .exp-real {
+    display: none;
+  }
+  .button-dark {
+    width: 80px;
+    display: none;
+  }
+
   .main-img-2 {
     display: none;
   }
