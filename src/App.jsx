@@ -32,16 +32,15 @@ function App() {
     //document.body.style.color = isDarkMode ? "#fff" : "#333";
     const logoElement = document.querySelector(".logoA");
     const dispalyElement = document.querySelector(".display");
-    if (logoElement) {
-      logoElement.style.color = isDarkMode ? "lightBlue" : "#333"; // 333nge color accordingly
-    }
-    if (dispalyElement) {
-      dispalyElement.style.backgroundColor = isDarkMode ? "#1f2937" : "#fff"; // 333nge color accordingly
-    }
+    const expElement = document.querySelector(".exp-real");
+
+    expElement.style.color = isDarkMode ? "#fff" : "#333";
+    logoElement.style.color = isDarkMode ? "lightBlue" : "#333"; // 333nge color accordingly
+    dispalyElement.style.backgroundColor = isDarkMode ? "#1f2937" : "#fff"; // 333nge color accordingly
   }, [isDarkMode]);
 
   const moonHandler = () => {
-    setIsDarkMode((prev) => !prev); //NOT operator used
+    setIsDarkMode((prev) => !prev); //NOT operator used for going dark and getting back to light mode after clicking twice
   };
 
   return (
@@ -122,9 +121,9 @@ function App() {
           })}
         </ul>*/}
           <div className="display">
-            {myData.map((i) => {
+            {myData.map((i, index) => {
               return (
-                <div className="display-content">
+                <div className="display-content" key={index}>
                   <div className="content-text">
                     <h3 className="p-display-main">{i.title}</h3>
                     <p className="p-display">{i.author}</p>
