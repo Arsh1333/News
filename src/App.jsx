@@ -15,18 +15,21 @@ function App() {
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://google-news13.p.rapidapi.com/latest",
-      params: { lr: "en-US" },
+      url: "https://real-time-news-data.p.rapidapi.com/search",
+      params: {
+        query: "Elon Musk",
+        country: "US",
+        lang: "en",
+      },
       headers: {
         "X-RapidAPI-Key": "87928b50bemsh0d22aea7bc9662ep16211ajsnb16d72ec89b4",
-        "X-RapidAPI-Host": "google-news13.p.rapidapi.com",
+        "X-RapidAPI-Host": "real-time-news-data.p.rapidapi.com",
       },
     };
-
     axios
       .request(options)
       .then((response) => {
-        setMyData(response.data.items);
+        setMyData(response.data.data);
         console.log(response.data);
       })
       .catch((error) => {
@@ -133,13 +136,20 @@ function App() {
                 <div className="display-content" key={index}>
                   <div className="content-text">
                     <h3 className="p-display-main">{i.title}</h3>
-                    <p className="p-display">{i.publisher}</p>
-                    <p className="p-display">{i.snippet}</p>
+                    <p className="p-display">{i.title}</p>
+                    <p className="p-display">{i.title}</p>
                     <p className="read">
-                      <a href={i.newsUrl}>Read More</a>
+                      <a href={i.link}>Read More</a>
                     </p>
                   </div>
-                  <div className="content-image-container"></div>
+                  <div className="content-image-container">
+                    <img
+                      src={i.photo_url}
+                      height="200px"
+                      width="100px"
+                      alt=""
+                    />
+                  </div>
                 </div>
               );
             })}
