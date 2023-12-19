@@ -13,19 +13,26 @@ function App() {
   const [myData, setMyData] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
+    const options = {
+      method: "GET",
+      url: "https://google-news13.p.rapidapi.com/latest",
+      params: { lr: "en-US" },
+      headers: {
+        "X-RapidAPI-Key": "87928b50bemsh0d22aea7bc9662ep16211ajsnb16d72ec89b4",
+        "X-RapidAPI-Host": "google-news13.p.rapidapi.com",
+      },
+    };
+
     axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=in&apiKey=d7c4f4afd3db4a1c8bd13ef56b92040e"
-      )
-      .then((res) => {
-        console.log(res.data);
-        setMyData(res.data.articles);
+      .request(options)
+      .then((response) => {
+        setMyData(response.data.items);
+        console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }, []);
-
   //darkmode useEffect starts here
   useEffect(() => {
     document.body.style.backgroundColor = isDarkMode ? "#1f2937" : "#fff";
@@ -126,23 +133,13 @@ function App() {
                 <div className="display-content" key={index}>
                   <div className="content-text">
                     <h3 className="p-display-main">{i.title}</h3>
-                    <p className="p-display">{i.author}</p>
-                    <p className="p-display">{i.source.name}</p>
-                    <p className="p-display">{i.content}</p>
+                    <p className="p-display">{i.publisher}</p>
+                    <p className="p-display">{i.snippet}</p>
                     <p className="read">
-                      <a href={i.url}>Read More</a>
+                      <a href={i.newsUrl}>Read More</a>
                     </p>
                   </div>
-                  <div className="content-image-container">
-                    <img
-                      className="content-img"
-                      src={
-                        i.urlToImage ||
-                        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAACUCAMAAADMOLmaAAAAMFBMVEXp7vG6vsHs8fTBxcjl6u28wcTEyMve4+bM0NO1uLu3u77Q1NfY3eDh5unT2Nvu9PdnWQIZAAABxElEQVR4nO3Z63KrIBRAYUEUBUne/22rqRrUmEKmZTud9f07zXG6ZuOFmqoCAAAAAAAAAAAAAAAXpiuTbTyooKFtsrVDuUTtnVPZnCuWqG2f3/cQShV24wSbNtM0xVuhIep6DDQ6k+mV68oEzoW5R1EYiwq1sYMNSWeXTKG+NcqpxqccJVPYfd8WXZ1wlEShHpb7ovM/L7RIYbPeihMuHIlCEz0t7GGIwwUKQ/Rw3j9y777vtj8SuVLOZzjuLfY9Iudhuw6x2f0PP33iNlMUmeG6zP12kb8D1bZI5n44qMes9nsWv5THSULPlNCq3rV28/HdP6+gaKHFdg660seLREWJ4oWHD/32D4R1ilcp3Ac+p3iVwkPgmihZqG07/+v+InBZaMnC4Nx8ab8MnKcoWGinLU5tzgPnfYZYYZgjTpZYvtAuFXV3/h5CsFDb5y72zYsSwcKQ9v5GrjCa4DULQ1qfXKFJfkUnVZh4EkoWpgZSeF74j1a5lrqWbbLqOjvYcxTGpkIVct+025KFj31W7ldSruC3FdOCfST/1PiUvr3bDJ5xL14y/l2i7epsXdp3Br+VWPB3AQAAAAAAAAAAAACAIr4AdboYA+fBeQsAAAAASUVORK5CYII="
-                      }
-                      alt="Image not found"
-                    />
-                  </div>
+                  <div className="content-image-container"></div>
                 </div>
               );
             })}
