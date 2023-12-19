@@ -17,7 +17,7 @@ function App() {
       method: "GET",
       url: "https://real-time-news-data.p.rapidapi.com/search",
       params: {
-        query: "Elon Musk",
+        query: "India",
         country: "US",
         lang: "en",
       },
@@ -29,7 +29,7 @@ function App() {
     axios
       .request(options)
       .then((response) => {
-        setMyData(response.data.data);
+        setMyData(response.data.data.slice(0, 20));
         console.log(response.data);
       })
       .catch((error) => {
@@ -136,19 +136,12 @@ function App() {
                 <div className="display-content" key={index}>
                   <div className="content-text">
                     <h3 className="p-display-main">{i.title}</h3>
-                    <p className="p-display">{i.title}</p>
-                    <p className="p-display">{i.title}</p>
                     <p className="read">
                       <a href={i.link}>Read More</a>
                     </p>
                   </div>
                   <div className="content-image-container">
-                    <img
-                      src={i.photo_url}
-                      height="200px"
-                      width="100px"
-                      alt=""
-                    />
+                    <img src={i.photo_url} className="content-img" alt="" />
                   </div>
                 </div>
               );

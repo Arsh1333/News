@@ -137,6 +137,7 @@ h1 {
 }
 .p-display-main {
   margin: 10px;
+  font-size: 36px;
   font-family: "Noto Sans", sans-serif;
 }
 .news-heading {
@@ -217,5 +218,10 @@ a {
   }
   h4 {
     margin-left: 36%;
+  }
+  .p-display-main {
+    margin: 10px;
+    font-size: 20px;
+    font-family: "Noto Sans", sans-serif;
   }
 }
